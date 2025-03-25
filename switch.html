@@ -8,7 +8,112 @@
 		<link href="assets/styles.css" rel="stylesheet">
 		<style>
 			/* Schrijf hier gewoon je CSS voor dit component */
+			
+/* .basic-with-symbol {
+    appearance: none;
+    display: inline-grid;
+    position: relative;
+    background-color: #98989d;
+    height: 20px;
+    width: 44px;
+    border-radius: 20px;
+}
 
+.basic-with-symbol:checked {
+    background-color: #007aff;
+}
+
+.basic-with-symbol::thumb {
+    background-color: white;
+    width: 24px;
+    height: 24px;
+    margin: -2px -1px;
+    transition: all 0.3s;
+    border-radius: 100%;
+    box-shadow: 0 0 5px rgba(0,0,0,0.3)
+}
+
+.basic-with-symbol:checked::thumb {
+    translate: 22px 0;
+}
+
+.basic-with-symbol::before {
+    content: "〇" / "";
+    font-weight: bold;
+    position: absolute;
+    font-size: 10px;
+    margin: 4px 5px;
+    top: 0;
+    left: 0;
+    color: white;
+}
+
+.basic-with-symbol:not(:checked)::before {
+    translate: 22px 0;
+}
+
+.basic-with-symbol:checked::before {
+    content: "I" / "";
+    margin-left: 10px;
+}
+
+.basic-with-symbol::thumb,
+.basic-with-symbol::track {
+    grid-area: 1/1;
+} */
+*, *::before, *::after{
+	box-sizing: border-box;
+}
+
+label{
+	display:block;
+	width:4em;
+	height:2em;
+	background-color: rgb(201, 116, 116);
+	border-radius: 15%;
+	position:relative;
+}
+
+label:has(input:checked){
+background-color: aquamarine;
+content:"aan";
+}
+
+label::after{
+	content:'';
+	position:absolute;
+	top:0;
+	left:0;
+	height:80%;
+	width:20%;
+}
+
+input{
+	width:3em;
+	transform:rotate(360deg);
+	/* transform:translateX(-1em); */
+	transition:.5s;
+	appearance: none;
+	
+	background-color:red;
+	font:inherit;
+	border-radius:1em;
+}
+
+input:checked{
+	transition-duration: .15s;
+	transform:translateX(1em);
+	content:"aan";
+}
+
+input::before{
+	content:"uit";
+	display:block;
+	width:1.5em;
+	height:1.5em;
+	background-color: red;
+	border-radius:30%;
+}
 			/* Hint: Dit component kun je volledig met HTML en CSS bouwen */
 
 			/* Hint: Hoe ver ga je qua styling? Vraag jezelf dit altijd af */
@@ -19,8 +124,12 @@
 		<p>checkbox gebruiken html</p>
 		<!-- Hint: Safari heeft hiervoor iets bedacht, maar is dat al een standaard?
 		     Wat gebeurt er in browsers die dat nog niet ondersteunen? -->
-
-		<details open>
+			<label>
+				<input type="checkbox" switch>
+			</label> 
+			 
+		
+		<details>
 			<summary>Demo video</summary>
 			<video src="assets/switch.mp4" width="119" height="67" controls muted autoplay loop>
 				<a href="assets/switch.mp4">assets/switch.mp4</a>
