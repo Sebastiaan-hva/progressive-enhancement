@@ -20,16 +20,18 @@ label{
 	width:6em;
 	height:3em;
 	background-color: rgb(192, 177, 177);
-	border-radius: 15%;
+	border-radius: 1em;
 	position:relative;
 	padding:0;
+	display:grid;
+	aspect-ratio: 1;
 }
 
 label:has(input:checked){
 background-color: aquamarine;
 /* content:"aan"; */
 border:solid 1px black;
-height:2.5em;
+
 
 }
 
@@ -43,15 +45,16 @@ label::after{
 }
 
 input{
-	width:3em;
+	width:2.5em;
 	/* transform:rotate(360deg); */
 	transform:translateX(-.01em);
 	transition:.5s;
 	appearance: none;
 	height:2.5em;
-	background-color:red;
+	background-color:rgb(255, 255, 255);
 	font:inherit;
 	border-radius:1em;
+
 }
 
 input:checked{
@@ -68,11 +71,11 @@ input:checked::after {
 
 input::before{
 	content:"";
-	display:block;
+	/* display:block; */
 	width:2.5em;
 	height:2.5em;
 	background-color: rgb(255, 255, 255);
-	border-radius:30%;
+	border-radius:1em;
 }
 			/* Hint: Dit component kun je volledig met HTML en CSS bouwen */
 
