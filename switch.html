@@ -25,6 +25,7 @@ label{
 	padding:0;
 	display:grid;
 	aspect-ratio: 1;
+	
 }
 
 label:has(input:checked){
@@ -36,12 +37,12 @@ border:solid 1px black;
 }
 
 label::after{
-	content:'';
-	/* position:absolute; */
-	/* top:0; */
-	/* left:0; */
-	/* height:80%; */
-	/* width:20%; */
+	/* content:'';
+	position:absolute;
+	top:0;
+	left:0;
+	height:80%;
+	width:20%; */
 }
 
 input{
@@ -57,6 +58,9 @@ input{
 
 }
 
+input::after{
+	
+}
 input:checked{
 	transition-duration: .25s;
 	transform:translateX(3em);
@@ -65,13 +69,16 @@ input:checked{
 
 input:checked::after {
 	content:"aan";
-	font-size:0.8em;
+	font-size:1.4em;
 	
 }
 
 input::before{
+	margin-right: .1em;
+	margin-top:2.4em;
 	content:"";
 	/* display:block; */
+	
 	width:2.5em;
 	height:2.5em;
 	background-color: rgb(255, 255, 255);
