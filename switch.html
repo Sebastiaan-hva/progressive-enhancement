@@ -16,56 +16,61 @@
 label{
 	display:block;
 	margin-left:1em;
-	width:4em;
-	height:2em;
+	margin-bottom:3em;
+	width:6em;
+	height:3em;
 	background-color: rgb(192, 177, 177);
 	border-radius: 15%;
 	position:relative;
+	padding:0;
 }
 
 label:has(input:checked){
 background-color: aquamarine;
-content:"aan";
+/* content:"aan"; */
 border:solid 1px black;
+height:2.5em;
+
 }
 
 label::after{
 	content:'';
-	position:absolute;
-	top:0;
-	left:0;
-	height:80%;
-	width:20%;
+	/* position:absolute; */
+	/* top:0; */
+	/* left:0; */
+	/* height:80%; */
+	/* width:20%; */
 }
 
 input{
 	width:3em;
-	transform:rotate(360deg);
+	/* transform:rotate(360deg); */
 	transform:translateX(-.01em);
 	transition:.5s;
 	appearance: none;
-	
-	/* background-color:red; */
+	height:2.5em;
+	background-color:red;
 	font:inherit;
 	border-radius:1em;
 }
 
 input:checked{
-	transition-duration: .15s;
-	transform:translateX(2em);
-	content:"aan";
+	transition-duration: .25s;
+	transform:translateX(3em);
+	/* content:"aan"; */
 }
 
 input:checked::after {
 	content:"aan";
-	transform: translateY(1em);
+	font-size:0.8em;
+	
 }
 
 input::before{
 	content:"";
 	display:block;
-	width:1.5em;
-	height:1.5em;
+	width:2.5em;
+	height:2.5em;
 	background-color: rgb(255, 255, 255);
 	border-radius:30%;
 }
