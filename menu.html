@@ -33,7 +33,7 @@
 			
 
 			/* article  :not(:target) {
-  				filter: blur(5px);
+  				
 			} */
 
 			li {
@@ -60,18 +60,12 @@
 			}
 
 			.blur{
-				background-color: red;
+				filter: blur(2px);
 			}
 			/* Hint: kijk eens naar :target
 			   https://developer.mozilla.org/en-US/docs/Web/CSS/:target */
 		</style>
-		<script type="module">
-			
-        function classToggle() {
-            let para = document.getElementById("p");
-            para.classList.toggle("blur");
-        }
-		</script>
+
 	</head>
 	<body>
 		<main>
@@ -97,7 +91,7 @@
 				
 			</nav>
 
-			<a class="fdnd-button" id="button" onclick="myFunc()"href="#jump">menu</a>
+			<a class="fdnd-button" id="button" href="#jump">menu</a>
 
 			<article id="p">
 			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris interdum eget elit eu tincidunt. Donec gravida nulla at justo sollicitudin, hendrerit faucibus diam tincidunt. Pellentesque porta neque quis nunc laoreet congue. Sed porttitor nec tellus nec semper. Cras pharetra dictum risus ut sagittis. Aliquam in iaculis arcu. Nulla sit amet diam sit amet mauris placerat laoreet eu vel turpis. Vivamus ac massa ut diam gravida elementum ut nec nulla. Integer vel felis massa. Quisque facilisis enim ornare ultricies mattis. Fusce porta rhoncus ex. Nunc viverra orci at leo fermentum convallis. Morbi sodales, lectus congue aliquam maximus, metus ipsum placerat turpis, vitae venenatis metus erat vel eros. Vestibulum lobortis accumsan elit nec maximus. Vivamus mollis ullamcorper felis, id aliquet tellus volutpat at.</p>
@@ -129,7 +123,34 @@
 			</video>
 		</details>
 
+		<script>
+					
+		document.addEventListener("DOMContentLoaded", function () {
+		const menuButton = document.getElementById("button");
+		const closeButton = document.querySelector(".sluit-button a");
+		const article = document.querySelector("article");
+		const toggleClass = "blur"; // Change this to whatever class you want to toggle
 
+		window.classToggle = function () {
+        if (article) {
+            article.classList.toggle(toggleClass);
+		}
+		};
+
+   		menuButton.addEventListener("click", function (event) {
+        event.preventDefault(); // Prevent the default anchor behavior
+        classToggle();
+ 		});
+
+		closeButton.addEventListener("click", function () {
+			if (article) {
+				article.classList.remove(toggleClass);
+			}
+		});
+		});
+
+
+		</script>
 		
 	</body>
 </html>
