@@ -12,7 +12,7 @@
 *, *::before, *::after{
 	box-sizing: border-box;
 }
-
+@supports selector(label:has(input:checked)){
 label{
 	display:block;
 	margin-left:1em;
@@ -80,6 +80,7 @@ input::before{
 	height:2.5em;
 	background-color: rgb(255, 255, 255);
 	border-radius:1em;
+}
 }
 			/* Hint: Dit component kun je volledig met HTML en CSS bouwen */
 
