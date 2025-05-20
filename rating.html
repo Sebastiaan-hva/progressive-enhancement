@@ -7,6 +7,60 @@
 		<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
 		<link href="assets/styles.css" rel="stylesheet">
 		<style>
+
+			body > * * {
+			padding: 0;
+			margin: 0;
+			box-sizing: border-box;
+			}
+
+			@supports selector(::after) and selector(:has(*)) and (--custom: properties) {
+			.container {
+				display: flex;
+				gap: 1rem;
+			}
+
+			label {
+				--star-empty: url(./assets/gift-empty.svg);
+				--star-filled: url(./assets/gift_cleaned.svg);
+				display: flex;
+				align-items: center;
+				flex-wrap: wrap;
+				flex-direction: column;
+			}
+
+			input[type="radio"] {
+				height: 2rem;
+				padding: 0 0.25rem;
+				aspect-ratio: 1;
+				display: grid;
+				place-content: center;
+				cursor: pointer;
+				appearance: none;
+			}
+
+			input[type="radio"]::after {
+				content: "";
+				background: var(--star-empty) no-repeat center;
+				height: inherit;
+				aspect-ratio: 1;
+				transition: background-image 0.3s ease;
+				z-index: 1;
+				cursor: pointer;
+			}
+
+			/* Empty stars after the hovered/focused/checked one */
+			.container:has(input[type="radio"]:is(:hover, :focus, :checked)) label:has(input[type="radio"]:is(:hover, :focus, :checked)) ~ label input[type="radio"]::after {
+				background: var(--star-empty);
+			}
+			/* Fill stars on hover, focus, or check */
+			input[type="radio"]:is(:hover, :focus, :checked)::after,
+			.container:has(input[type="radio"]:is(:hover, :focus, :checked)) label:not(:has(input[type="radio"]:is(:hover, :focus, :checked)) ~ label) input[type="radio"]::after {
+				background: var(--star-filled);
+			}
+			}
+
+
 			/* Schrijf hier gewoon je CSS voor dit component */
 			
 			/* Hint: als je de sterren als achtergrond voor iets wilt gebruiken, zijn dit de SVG's die je kunt gebruiken:
@@ -34,13 +88,37 @@
 		<!-- Waarschijnlijk wil je je rating ooit opslaan, dus heb je een formulier nodig -->
 		<form method="post">
 
+		<div class="container">
+        <label>
+          <input type="radio" name="rating" value="1" />
+          1 ster
+        </label>
+        <label>
+          <input type="radio" name="rating" value="2" />
+          2 sterren
+        </label>
+        <label>
+          <input type="radio" name="rating" value="3" />
+          3 sterren
+        </label>
+        <label>
+          <input type="radio" name="rating" value="4" />
+          4 sterren
+        </label>
+        <label>
+          <input type="radio" name="rating" value="5" />
+          5 sterren
+        </label>
+      </div>
+
+
 			<!-- Hint: hoeveel verschillende ratings kun je geven? -->
 
 			<!-- Hint: of is dit met één formulierelement te maken? -->
 
 		</form>
 
-		<details open>
+		<details>
 			<summary>Demo video</summary>
 			<video src="assets/rating.mp4" width="271" height="110" controls muted autoplay loop>
 				<a href="assets/rating.mp4">assets/rating.mp4</a>
